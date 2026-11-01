@@ -11,7 +11,7 @@ const client = new MongoClient(url);
 
 
 // Database Name
-const dbName = 'test2024';
+const dbName = 'tc2026';
 
 
 async function main() {
@@ -19,7 +19,7 @@ async function main() {
 await client.connect();
 console.log('Connected successfully to server');
 const db = client.db(dbName);
-const collection = db.collection('documents');
+const collection = db.collection('guitars');
 
 
  // the following code examples can be pasted here...
