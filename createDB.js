@@ -1,6 +1,8 @@
 const { MongoClient } = require('mongodb');
 // or as an es module:
 // import { MongoClient } from 'mongodb'
+var data = require("./data.js").data;
+console.log(data)
 
 
 // Connection URL
@@ -33,3 +35,4 @@ main()
 .then(console.log)
 .catch(console.error)
 .finally(() => client.close());
+
