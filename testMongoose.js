@@ -1,25 +1,16 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/testMongoose2026');
 
+var Guitar = require('./models/guitar.js').Guitar;
 
-var schema = mongoose.Schema({ name: String })
+var guitar = new Guitar({
+    title: "B.C. Rich Stealth",
+    nick: "bc-rich-stealth"
+});
 
-
-
-
-schema.methods.meow = function(){
-   console.log(this.name + " сказал мяу")
-}
-
-
-
-
-const Cat = mongoose.model('Cat', schema);
-
-
-
-
-
-
-const kitty = new Cat({ name: 'Пушок' });
-kitty.save().then(() => kitty.meow());
+guitar.save()
+    .then(() => {
+        console.log('Гитара сохранена!');
+        mongoose.disconnect();
+    })
+    .catch(err => console.error(err));
